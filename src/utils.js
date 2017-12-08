@@ -153,7 +153,8 @@ utils.isSpecialKeyPress = function (which, keyCode) {
     'uparrow': { 'which': 0, 'keyCode': 38 },
     'rightarrow': { 'which': 0, 'keyCode': 39 },
     'downarrow': { 'which': 0, 'keyCode': 40 },
-    'F5': { 'which': 116, 'keyCode': 116 }
+    'F5': { 'which': 116, 'keyCode': 116 },
+    'esc': { 'which': 27, 'keyCode': 27 }
   };
 
   return utils.getMatchingKey(which, keyCode, keys);

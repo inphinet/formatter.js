@@ -268,6 +268,10 @@ var utils = function () {
       'F5': {
         'which': 116,
         'keyCode': 116
+      },
+      'esc': {
+        'which': 27,
+        'keyCode': 27
       }
     };
     return utils.getMatchingKey(which, keyCode, keys);
