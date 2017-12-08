@@ -631,8 +631,14 @@ var formatter = function (patternMatcher, inptSel, utils) {
     } else if (delKey && delKey === 46) {
       this._delete();
     } else if (delKey && this.sel.begin - 1 >= 0) {
+      // Increase the backspace distance for every
+      // placeholder character at the end of the selection
+      var backspaceDistance = 1;
+      while (!this.opts.persistent && this.chars[this.sel.end - backspaceDistance]) {
+        backspaceDistance++;
+      }
       // Always have a delta of at least -1 for the character being deleted.
-      this.val = utils.removeChars(this.val, this.sel.end - 1, this.sel.end);
+      this.val = utils.removeChars(this.val, this.sel.end - backspaceDistance, this.sel.end);
       this.delta -= 1;
     } else if (delKey) {
       return true;
