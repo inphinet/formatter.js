@@ -80,7 +80,7 @@ function Formatter(el, opts) {
   // Persistence
   if (self.opts.persistent) {
     // Format on start
-    self._processKey('', false);
+    self._processKey('', false, true);
     self.el.blur();
 
     // Add Listeners

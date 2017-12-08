@@ -502,7 +502,7 @@ var formatter = function (patternMatcher, inptSel, utils) {
     // Persistence
     if (self.opts.persistent) {
       // Format on start
-      self._processKey('', false);
+      self._processKey('', false, true);
       self.el.blur();
       // Add Listeners
       utils.addListener(self.el, 'focus', self._handlers.focus);
