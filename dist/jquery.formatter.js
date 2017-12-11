@@ -539,9 +539,13 @@ var formatter = function (patternMatcher, inptSel, utils) {
   // @public
   // Apply the given pattern to the current input without moving caret.
   //
-  Formatter.prototype.resetPattern = function (str) {
+  Formatter.prototype.resetPattern = function (pattern) {
     // Update opts to hold new pattern
-    this.opts.patterns = str ? this._specFromSinglePattern(str) : this.opts.patterns;
+    if (Array.isArray(pattern)) {
+      this.opts.patterns = pattern;
+    } else if (pattern) {
+      this.opts.patterns = this._specFromSinglePattern(pattern);
+    }
     // Get current state
     this.sel = inptSel.get(this.el);
     this.val = this.el.value;
